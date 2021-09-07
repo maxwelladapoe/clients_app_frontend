@@ -1,5 +1,4 @@
-#Clients App Frontend
-
+# Clients App Frontend
 
 
 ---
@@ -54,6 +53,7 @@ with this you should see your application running on localhost. The port should 
 
 ---
 ## Install / Set up the backend Project
+
 To install the project run the following
 
       git clone https://github.com/maxwelladapoe/clients_app_backend
@@ -61,16 +61,19 @@ To install the project run the following
       npm install
 
 ## Running the backend project
-To run the service you can simply use
 
-    $ node index.js
-or
+To run the service you can simply run
 
-    $ nodemon index.js
+     node index.js
+
+or use nodemon
+
+     nodemon index.js
 
 
 ---
-##Swagger / Open Api docs
+## Swagger / Open Api docs
+
 To check the Api Documentation visit
 http://localhost:5024/api-docs/.
 In the event that you have to change the port, you will have to replace <5024> with your required port
