@@ -1,6 +1,7 @@
 # Clients App Frontend
 This is the frontend for the Clients App  Practical test for the fullstack javascript developer role at Protranslating
 
+---
 ## Requirements
 
 To run this project, you will only need Node.js and npm installed on your local machine
