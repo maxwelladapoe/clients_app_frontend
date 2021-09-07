@@ -27,14 +27,12 @@ To run this project, you will only need Node.js and npm installed on your local 
 - #### Other Operating Systems
   You can find more information about the installation on the
   [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
+  
 
 
 ---
-
-
----
-## Install / Setup Project
-To install / setup the project run the following
+## Install / Set up Project
+To install / set up the project run the following
 
       git clone https://github.com/maxwelladapoe/clients_app_frontend
       cd clients_app_frontend
@@ -54,4 +52,27 @@ with this you should see your application running on localhost. The port should 
      npm run build
 
 
+---
+## Install / Set up the backend Project
+To install the project run the following
+
+      git clone https://github.com/maxwelladapoe/clients_app_backend
+      cd clients_app_backend
+      npm install
+
+## Running the backend project
+To run the service you can simply use
+
+    $ node index.js
+or
+
+    $ nodemon index.js
+
+
+---
+##Swagger / Open Api docs
+To check the Api Documentation visit
+http://localhost:5024/api-docs/.
+In the event that you have to change the port, you will have to replace <5024> with your required port
+  
 
