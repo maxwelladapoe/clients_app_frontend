@@ -77,5 +77,7 @@ or use nodemon
 To check the Api Documentation visit
 http://localhost:5024/api-docs/.
 In the event that you have to change the port, you will have to replace <5024> with your required port
-  
+
+
+## Ensure you have set up the frontend and the backend and both should be running
 
