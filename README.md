@@ -1,5 +1,5 @@
 # Clients App Frontend
-This is the frontend for the Clients App  Practical test for the fullstack javascript developer role at Protranslating
+This is the frontend for the Clients App  Practical test for the fullstack javascript developer role
 
 ---
 ## Requirements
