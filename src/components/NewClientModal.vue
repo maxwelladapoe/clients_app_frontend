@@ -1,6 +1,5 @@
 <template>
   <div class="modal fade" id="newClientModal" tabindex="-1" aria-labelledby="newClientModal" aria-hidden="true">
-
     <div class="modal-dialog  modal-lg">
       <form @submit.prevent="createNewClient">
         <div class="modal-content">
@@ -9,39 +8,27 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body px-5">
-
             <div class="form ">
-
-
               <div class="row g-6 mb-3 align-items-center ">
-
                 <label for="name" class="col-12 col-lg-2  col-form-label">Name: </label>
-
                 <div class="col-12 col-lg-10">
                   <input type="text" id="name" class="form-control" required v-model="client.name">
                 </div>
               </div>
-
               <div class="row g-6 mb-3 align-items-center ">
-
                 <label for="email" class="col-12 col-lg-2  col-form-label">Email: </label>
-
                 <div class="col-12 col-lg-10">
                   <input type="email" id="email" class="form-control" required v-model="client.email">
                 </div>
               </div>
-
               <div class="row g-6 mb-3 align-items-center ">
                 <label for="phone" class="col-12 col-lg-2  col-form-label">Phone: </label>
                 <div class="col-12 col-lg-10">
                   <input type="tel" id="phone" class="form-control" required v-model="client.phone">
                 </div>
               </div>
-
               <Providers :providers="providers" v-model="client.providers"/>
             </div>
-
-
           </div>
           <div class="modal-footer px-5">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -50,14 +37,11 @@
         </div>
       </form>
     </div>
-
   </div>
 </template>
-
 <script>
 import {Modal} from 'bootstrap';
 import Providers from "@/components/Providers";
-
 export default {
   name: 'NewClientModal',
   components: {Providers},
@@ -85,8 +69,6 @@ export default {
     }
   },
   methods: {
-
-
     createNewClient() {
       this.axios.post('/clients', this.client).then((res) => {
         this.client = {
@@ -101,8 +83,6 @@ export default {
         console.log(error);
       })
     }
-
-
   }
 }
 </script>

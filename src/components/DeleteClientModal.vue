@@ -1,6 +1,5 @@
 <template>
   <div class="modal fade" id="deleteClientModal" tabindex="-1" aria-labelledby="editClientModal" aria-hidden="true">
-
     <div class="modal-dialog ">
       <form @submit.prevent="deleteClient">
         <div class="modal-content">
@@ -9,12 +8,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body px-3">
-
-<div >
-  <p>  Are you sure you want to delete "<span class="fw-bold">{{client.name}}</span>" ? <br>
-    <span class="text-danger">This activity cannot be rolled back</span></p>
-</div>
-
+            <div>
+              <p> Are you sure you want to delete "<span class="fw-bold">{{ client.name }}</span>" ? <br>
+                <span class="text-danger">This activity cannot be rolled back</span></p>
+            </div>
           </div>
           <div class="modal-footer px-3">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -23,18 +20,15 @@
         </div>
       </form>
     </div>
-
   </div>
 </template>
 
 <script>
 import {Modal} from "bootstrap";
-
 export default {
   name: 'DeleteClientModal',
   data() {
     return {
-
       provider: {
         name: ''
       }
@@ -45,12 +39,10 @@ export default {
       type: Object,
     }
   },
-
-  mounted(){
+  mounted() {
     this.modal = new Modal(document.getElementById('deleteClientModal'));
   },
   methods: {
-
     deleteClient() {
       this.axios.delete(`/clients/${this.client.id}`).then((res) => {
         this.modal.hide();
@@ -60,7 +52,6 @@ export default {
         console.log(error);
       })
     }
-
   }
 }
 </script>

@@ -1,29 +1,23 @@
 <template>
   <div id="app" class="container">
-
-
     <div class="header mt-5 bg-light-blue">
       <div class="d-flex justify-content-between d-flex align-items-center p-3 ">
         <h2 class="text-primary">Clients</h2>
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newClientModal">New Client</button>
-
         <NewClientModal :providers='providers' @newClient="clientCreated"/>
         <EditClientModal :providers='providers' :client="selectedClient"
                          @deleleClient="deleteClient"
                          @editClient="editClient"
                          @editCanceled="cancelEditClient"/>
         <DeleteClientModal :client="selectedClient" @deleteClient="deleteClient"/>
-
-
       </div>
     </div>
     <div id="clients-table">
-
-
       <div v-if=" isLoading">
-        <Loading class="mx-auto mt-5"/>
+        <div class="d-flex justify-content-center w-100">
+          <div id="loading"></div>
+        </div>
       </div>
-
       <div v-else>
         <template v-if="clients.length >0">
           <table class="table table-bordered">
@@ -36,18 +30,13 @@
               <th scope="col"></th>
             </tr>
             </thead>
-
-
             <tbody>
-
-
             <template v-for="client in clients">
               <tr :key="client.id">
                 <td>{{ client.name }}</td>
                 <td>{{ client.email }}</td>
                 <td>{{ client.phone }}</td>
                 <td>{{ getProviderNames(client.providers) }}</td>
-
                 <td>
                   <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#editClientModal"
                           @click="setSelectedClient(client)">Edit
@@ -58,35 +47,24 @@
                 </td>
               </tr>
             </template>
-
-
             </tbody>
-
           </table>
         </template>
-
         <template v-else>
           <p class="mt-2 text-center" v-html="message"></p>
         </template>
-
       </div>
-
     </div>
-
-
   </div>
 </template>
 
 <script>
-
 import NewClientModal from "@/components/NewClientModal";
 import EditClientModal from "@/components/EditClientModal";
 import DeleteClientModal from "@/components/DeleteClientModal";
-import Loading from "@/components/Loading";
-
 export default {
   name: 'App',
-  components: {Loading, DeleteClientModal, EditClientModal, NewClientModal},
+  components: {DeleteClientModal, EditClientModal, NewClientModal},
   data() {
     return {
       selectedClient: {},
@@ -127,15 +105,12 @@ export default {
 
       let providerNameArray = [];
       providers.forEach((provider) => {
-
         let getIndex = this.providers.findIndex(x => {
           return x.id == provider
         });
-
         if (getIndex > -1) {
           providerNameArray.push(this.providers[getIndex].name);
         }
-
       })
       return providerNameArray.join(', ');
     }
@@ -163,17 +138,30 @@ export default {
 .bg-light-grey {
   background-color: #E7E7E7;
 }
-
 .btn-light-grey {
   background-color: #E7E7E7 !important;
 }
-
 .bg-light-blue {
   background-color: #F0F5F9;
 }
-
 .pointer {
   cursor: pointer;
+}
+#loading {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(177, 162, 162, 0.3);
+  border-radius: 50%;
+  border-top-color: #198754;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }
 </style>
 
